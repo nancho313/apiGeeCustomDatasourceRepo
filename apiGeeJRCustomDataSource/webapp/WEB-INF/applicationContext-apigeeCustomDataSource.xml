@@ -12,7 +12,7 @@
     <bean id="apiGeeCustomDataSource" class="com.jaspersoft.jasperserver.api.engine.jasperreports.util.CustomDataSourceDefinition">
         <property name="factory" ref="customDataSourceServiceFactory"/>
         <property name="name" value="apiGeeCustomDataSource"/>
-        <property name="serviceClassName" value="com.colsubsidio.jr.report.resolver.datasource.ApiGeeDataSourceService"/>
+        <property name="serviceClassName" value="com.colsubsidio.jr.custom.datasource.impl.ApiGeeDataSourceService"/>
         <property name="propertyDefinitions">
             <list>
                 <map>

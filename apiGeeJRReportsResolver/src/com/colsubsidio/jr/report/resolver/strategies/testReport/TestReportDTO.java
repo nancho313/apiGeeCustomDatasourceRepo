@@ -1,6 +1,6 @@
 package com.colsubsidio.jr.report.resolver.strategies.testReport;
 
-import com.colsubsidio.jr.commons.dto.IApiGeeDTO;
+import com.colsubsidio.jr.report.resolver.commons.dto.IApiGeeDTO;
 
 import java.io.Serializable;
 import java.util.List;

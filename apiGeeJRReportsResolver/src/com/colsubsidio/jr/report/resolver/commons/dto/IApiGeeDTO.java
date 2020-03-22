@@ -1,4 +1,4 @@
-package com.colsubsidio.jr.commons.dto;
+package com.colsubsidio.jr.report.resolver.commons.dto;
 
 import java.io.Serializable;
 

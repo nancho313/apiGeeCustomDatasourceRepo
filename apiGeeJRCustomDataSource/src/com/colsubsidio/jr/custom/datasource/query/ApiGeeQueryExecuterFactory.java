@@ -1,6 +1,5 @@
-package com.colsubsidio.jr.report.resolver.query;
+package com.colsubsidio.jr.custom.datasource.query;
 
-import com.colsubsidio.jr.report.resolver.datasource.ApiGeeDataSourceMetadata;
 import net.sf.jasperreports.engine.JRDataset;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRValueParameter;

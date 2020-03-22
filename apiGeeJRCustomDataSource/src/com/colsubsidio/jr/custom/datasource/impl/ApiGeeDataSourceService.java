@@ -1,4 +1,4 @@
-package com.colsubsidio.jr.report.resolver.datasource;
+package com.colsubsidio.jr.custom.datasource.impl;
 
 import com.jaspersoft.jasperserver.api.metadata.common.service.RepositoryService;
 import com.jaspersoft.jasperserver.api.metadata.jasperreports.domain.CustomDomainMetaData;
@@ -6,7 +6,6 @@ import com.jaspersoft.jasperserver.api.metadata.jasperreports.domain.CustomDomai
 import com.jaspersoft.jasperserver.api.metadata.jasperreports.domain.CustomReportDataSource;
 import com.jaspersoft.jasperserver.api.metadata.jasperreports.service.ReportDataSourceService;
 import net.sf.jasperreports.engine.JRDataSource;
-import net.sf.jasperreports.engine.JRParameter;
 
 import java.util.Map;
 

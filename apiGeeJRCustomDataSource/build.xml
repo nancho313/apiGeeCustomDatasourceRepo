@@ -1,13 +1,5 @@
-<!--
-  ~ Copyright (C) 2005 - 2019 TIBCO Software Inc. All rights reserved. Confidentiality & Proprietary.
-  ~ Licensed pursuant to commercial TIBCO End User License Agreement.
-  -->
-
 <project name="x" default="deploy" basedir=".">
-    <!-- Points to where jasperserver is installed on tomcat or another webapp server.
-        Used to find JARs for compiling as well as deploying
-   -->
-    <property name="webAppDir" value="/home/nancho313/Downloads/jasperdocker/jasperreports-persistence/jasperreports"/>
+
     <property name="webInfoDir" value="/home/nancho313/Downloads/jasperdocker/jasperreports-webinf"/>
 
     <target name="clean">
@@ -20,9 +12,6 @@
                 <fileset dir="${webInfoDir}/lib">
                     <include name="*.jar"/>
                 </fileset>
-                <!-- fileset dir="webapp/WEB-INF/lib">
-                   <include name="*.jar"/>
-               </fileset -->
             </classpath>
         </javac>
     </target>

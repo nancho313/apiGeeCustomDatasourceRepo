@@ -1,8 +1,8 @@
 package com.colsubsidio.jr.report.resolver.strategies.testReport;
 
-import com.colsubsidio.jr.commons.domain.IApiGeeDomainMetadata;
-import com.colsubsidio.jr.commons.integrator.IApiGeeResponse;
-import com.colsubsidio.jr.commons.strategy.IApiGeeReportStrategy;
+import com.colsubsidio.jr.report.resolver.commons.domain.IApiGeeDomainMetadata;
+import com.colsubsidio.jr.report.resolver.commons.response.IApiGeeResponse;
+import com.colsubsidio.jr.report.resolver.commons.strategy.IApiGeeReportStrategy;
 
 import java.util.ArrayList;
 import java.util.List;

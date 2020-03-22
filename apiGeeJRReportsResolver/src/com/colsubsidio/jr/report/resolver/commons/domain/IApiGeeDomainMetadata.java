@@ -1,4 +1,4 @@
-package com.colsubsidio.jr.commons.domain;
+package com.colsubsidio.jr.report.resolver.commons.domain;
 
 import java.util.List;
 

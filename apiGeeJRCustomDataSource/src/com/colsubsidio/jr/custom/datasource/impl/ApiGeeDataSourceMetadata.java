@@ -1,11 +1,12 @@
-package com.colsubsidio.jr.report.resolver.datasource;
+package com.colsubsidio.jr.custom.datasource.impl;
 
-import com.colsubsidio.jr.commons.dto.IApiGeeDTO;
-import com.colsubsidio.jr.commons.integrator.IApiGeeResponse;
-import com.colsubsidio.jr.commons.strategy.IApiGeeReportStrategy;
+
+import com.colsubsidio.jr.report.resolver.commons.dto.IApiGeeDTO;
+import com.colsubsidio.jr.report.resolver.commons.response.IApiGeeResponse;
+import com.colsubsidio.jr.report.resolver.commons.strategy.IApiGeeReportStrategy;
 import com.colsubsidio.jr.report.resolver.enums.ReportStrategyEnum;
 import com.colsubsidio.jr.report.resolver.factory.ApiGeeReportFactory;
-import com.colsubsidio.jr.report.resolver.integration.ApiGeeIntegrator;
+import com.colsubsidio.jr.custom.datasource.integration.ApiGeeIntegrator;
 import com.jaspersoft.jasperserver.api.engine.jasperreports.util.CustomDomainMetaDataImpl;
 import com.jaspersoft.jasperserver.api.metadata.jasperreports.domain.CustomDomainMetaData;
 import com.jaspersoft.jasperserver.api.metadata.jasperreports.domain.CustomDomainMetaDataProvider;
@@ -15,6 +16,7 @@ import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRField;
 
 import java.util.Iterator;
+import java.util.Map;
 
 public class ApiGeeDataSourceMetadata implements JRDataSource, CustomDomainMetaDataProvider {
 
@@ -24,9 +26,10 @@ public class ApiGeeDataSourceMetadata implements JRDataSource, CustomDomainMetaD
     private int fieldCount;
     private IApiGeeReportStrategy<IApiGeeDTO> strategy;
 
-    public void initSource(String username, String password, String tokenService, String apigeeService, ReportStrategyEnum reportStrategyEnum){
+    public void initSource(String username, String password, String tokenService, String apigeeService,
+                           ReportStrategyEnum reportStrategyEnum, Map<String, String> queryParams){
 
-        apiGeeIntegrator = new ApiGeeIntegrator(username, password, tokenService, apigeeService);
+        apiGeeIntegrator = new ApiGeeIntegrator(username, password, tokenService, apigeeService, queryParams);
         strategy = ApiGeeReportFactory.INSTANCE.getReportStrategy(reportStrategyEnum);
     }
 

@@ -1,6 +1,7 @@
 package com.colsubsidio.jr.report.resolver.strategies.testReport;
 
-import com.colsubsidio.jr.commons.integrator.IApiGeeResponse;
+
+import com.colsubsidio.jr.report.resolver.commons.response.IApiGeeResponse;
 
 public class TestReportResponse implements IApiGeeResponse<TestReportDTO> {
 
