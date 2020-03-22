@@ -4,6 +4,9 @@ import com.colsubsidio.jr.commons.domain.IApiGeeDomainMetadata;
 import com.colsubsidio.jr.commons.integrator.IApiGeeResponse;
 import com.colsubsidio.jr.commons.strategy.IApiGeeReportStrategy;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TestReportStrategy implements IApiGeeReportStrategy<TestReportDTO> {
 
     private final IApiGeeDomainMetadata domainMetadata = new TestReportDomainMetadata();
@@ -19,7 +22,14 @@ public class TestReportStrategy implements IApiGeeReportStrategy<TestReportDTO> 
     }
 
     @Override
-    public IApiGeeResponse buildResponse(TestReportDTO reportDTO) {
-        return new TestReportResponse(reportDTO);
+    public List<IApiGeeResponse> buildResponse(TestReportDTO testReportDTO) {
+
+        List<IApiGeeResponse> response = new ArrayList<>();
+        for (TestReportDTO.ReportDTO reportDTO : testReportDTO.data) {
+
+            TestReportResponse testReportResponse = new TestReportResponse(reportDTO);
+            response.add(testReportResponse);
+        }
+        return response;
     }
 }

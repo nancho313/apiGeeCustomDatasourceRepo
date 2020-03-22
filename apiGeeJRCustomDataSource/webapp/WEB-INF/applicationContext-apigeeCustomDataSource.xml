@@ -30,6 +30,9 @@
                 <map>
                     <entry key="name" value="apigeeService"/>
                 </map>
+                <map>
+                    <entry key="name" value="report"/>
+                </map>
             </list>
         </property>
         <property name="queryExecuterMap">

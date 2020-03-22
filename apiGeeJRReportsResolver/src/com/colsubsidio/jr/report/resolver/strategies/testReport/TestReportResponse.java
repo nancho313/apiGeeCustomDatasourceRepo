@@ -8,9 +8,9 @@ public class TestReportResponse implements IApiGeeResponse<TestReportDTO> {
     private static final String ADDRESS = "address";
     private static final String ID = "id";
 
-    private TestReportDTO reportDTO;
+    private TestReportDTO.ReportDTO reportDTO;
 
-    public TestReportResponse(TestReportDTO reportDTO) {
+    public TestReportResponse(TestReportDTO.ReportDTO reportDTO) {
         this.reportDTO = reportDTO;
     }
 

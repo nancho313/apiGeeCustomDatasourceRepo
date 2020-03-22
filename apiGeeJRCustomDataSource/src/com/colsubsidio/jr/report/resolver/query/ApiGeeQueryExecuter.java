@@ -1,6 +1,7 @@
 package com.colsubsidio.jr.report.resolver.query;
 
 import com.colsubsidio.jr.report.resolver.datasource.ApiGeeDataSourceMetadata;
+import com.colsubsidio.jr.report.resolver.enums.ReportStrategyEnum;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRValueParameter;
@@ -10,28 +11,25 @@ import java.util.Map;
 
 public class ApiGeeQueryExecuter implements JRQueryExecuter {
 
-    private ApiGeeDataSourceMetadata dataSource;
     private Map<String, ? extends JRValueParameter> jrParameters;
 
-    public ApiGeeQueryExecuter( ApiGeeDataSourceMetadata dataSource, Map<String, ? extends JRValueParameter> jrParameters){
-
-        this.dataSource = dataSource;
+    public ApiGeeQueryExecuter(Map<String, ? extends JRValueParameter> jrParameters){
         this.jrParameters = jrParameters;
-        System.out.println("JRParametros ----------------");
-        if(jrParameters != null){
-
-            for (String key : jrParameters.keySet()) {
-
-                System.out.println("KEY -> "+key+"   -   VALUE -> "+jrParameters.get(key).getValue());
-            }
-        }
 
         // Aca debo inicializar los query param
     }
 
     @Override
     public JRDataSource createDatasource() throws JRException {
-
+        Map<String, String> apiGeePropertes = (Map<String, String>) jrParameters.get("APIGEE_PROPERTIES");
+        ApiGeeDataSourceMetadata dataSource = new ApiGeeDataSourceMetadata();
+        String username = apiGeePropertes.get("username");
+        String password = apiGeePropertes.get("password");
+        String tokenService = apiGeePropertes.get("tokenService");
+        String apigeeService = apiGeePropertes.get("apigeeService");
+        String report = apiGeePropertes.get("report");
+        ReportStrategyEnum reportStrategyEnum = ReportStrategyEnum.valueOf(report);
+        dataSource.initSource(username, password, tokenService, apigeeService, reportStrategyEnum);
         dataSource.initIterator();
         return dataSource;
     }

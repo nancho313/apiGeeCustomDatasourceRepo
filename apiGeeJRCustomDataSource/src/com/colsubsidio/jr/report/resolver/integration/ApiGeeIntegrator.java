@@ -1,5 +1,8 @@
 package com.colsubsidio.jr.report.resolver.integration;
 
+import com.colsubsidio.jr.commons.dto.IApiGeeDTO;
+import com.colsubsidio.jr.commons.integrator.IApiGeeResponse;
+import com.colsubsidio.jr.commons.strategy.IApiGeeReportStrategy;
 import com.colsubsidio.jr.report.resolver.commons.dto.ReportDTO;
 import com.google.gson.Gson;
 
@@ -29,12 +32,13 @@ public class ApiGeeIntegrator {
         System.out.println("Apigee Service ->"+apigeeService);
     }
 
-    public List<ReportDTO> getReport() {
+    public List<IApiGeeResponse> getReport(IApiGeeReportStrategy<IApiGeeDTO> reportStrategy) {
 
         Client client = ClientBuilder.newClient();
         Response response = client.target(this.apigeeService).request(MediaType.APPLICATION_JSON).get();
         Gson gson = new Gson();
-        String responseJson =  response.readEntity(String.class);
-        return Arrays.asList(gson.fromJson(responseJson, ReportDTO[].class));
+        String responseJson = response.readEntity(String.class);
+        IApiGeeDTO apiGeeDTO = gson.fromJson(responseJson, reportStrategy.getApiGeeResponseClass());
+        return reportStrategy.buildResponse(apiGeeDTO);
     }
 }

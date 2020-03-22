@@ -47,10 +47,8 @@ public class ApiGeeQueryExecuterFactory implements QueryExecuterFactory {
         this.propertyMap = propertyMap;
     }
 
-    private JRQueryExecuter initExecuter(Map<String, ? extends JRValueParameter> map){
-
-        ApiGeeDataSourceMetadata dataSource = (ApiGeeDataSourceMetadata)map.get("REPORT_DATA_SOURCE");
-        ApiGeeQueryExecuter apiGeeQueryExecuter = new ApiGeeQueryExecuter( dataSource, map);
+    private JRQueryExecuter initExecuter(Map<String, ? extends JRValueParameter> map) {
+        ApiGeeQueryExecuter apiGeeQueryExecuter = new ApiGeeQueryExecuter(map);
         return apiGeeQueryExecuter;
     }
 }

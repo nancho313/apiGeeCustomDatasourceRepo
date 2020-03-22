@@ -1,34 +1,50 @@
 package com.colsubsidio.jr.report.resolver.strategies.testReport;
 
+import com.colsubsidio.jr.commons.dto.IApiGeeDTO;
+
 import java.io.Serializable;
+import java.util.List;
 
-public class TestReportDTO implements Serializable {
+public class TestReportDTO implements IApiGeeDTO {
 
-    private String address;
-    private String name;
-    private int id;
+    List<ReportDTO> data;
 
-    public String getAddress() {
-        return address;
+    public List<ReportDTO> getData() {
+        return data;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setData(List<ReportDTO> data) {
+        this.data = data;
     }
 
-    public String getName() {
-        return name;
-    }
+    public class ReportDTO implements Serializable {
 
-    public void setName(String name) {
-        this.name = name;
-    }
+        private String address;
+        private String name;
+        private int id;
 
-    public int getId() {
-        return id;
-    }
+        public String getAddress() {
+            return address;
+        }
 
-    public void setId(int id) {
-        this.id = id;
+        public void setAddress(String address) {
+            this.address = address;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
     }
 }

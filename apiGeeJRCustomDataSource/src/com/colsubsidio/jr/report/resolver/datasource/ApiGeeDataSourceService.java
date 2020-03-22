@@ -40,13 +40,7 @@ public class ApiGeeDataSourceService implements ReportDataSourceService, CustomD
 
     @Override
     public void setReportParameterValues(Map parameterValues) {
-
-        parameterValues.put(JRParameter.REPORT_DATA_SOURCE, ds);
-        String username = propertyMap.get("username");
-        String password = propertyMap.get("password");
-        String tokenService = propertyMap.get("tokenService");
-        String apigeeService = propertyMap.get("apigeeService");
-        ((ApiGeeDataSourceMetadata)ds).initSource(username, password, tokenService, apigeeService);
+        parameterValues.put("APIGEE_PROPERTIES", propertyMap);
     }
 
     @Override

@@ -1,8 +1,8 @@
 package com.colsubsidio.jr.commons.integrator;
 
-import java.io.Serializable;
+import com.colsubsidio.jr.commons.dto.IApiGeeDTO;
 
-public interface IApiGeeResponse<T extends Serializable> {
+public interface IApiGeeResponse<T extends IApiGeeDTO> {
 
     Object getFieldValue(String key);
 }
