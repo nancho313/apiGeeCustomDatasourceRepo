@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="apiGeeJRCommons:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/apiGeeJRCommons</output-path>
+    <root id="archive" name="apiGeeJRCommons.jar">
+      <element id="module-output" name="apiGeeJRCommons" />
+    </root>
+  </artifact>
+</component>

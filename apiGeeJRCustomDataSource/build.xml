@@ -1,0 +1,40 @@
+<!--
+  ~ Copyright (C) 2005 - 2019 TIBCO Software Inc. All rights reserved. Confidentiality & Proprietary.
+  ~ Licensed pursuant to commercial TIBCO End User License Agreement.
+  -->
+
+<project name="x" default="deploy" basedir=".">
+    <!-- Points to where jasperserver is installed on tomcat or another webapp server.
+        Used to find JARs for compiling as well as deploying
+   -->
+    <property name="webAppDir" value="/home/nancho313/Downloads/jasperdocker/jasperreports-persistence/jasperreports"/>
+    <property name="webInfoDir" value="/home/nancho313/Downloads/jasperdocker/jasperreports-webinf"/>
+
+    <target name="clean">
+        <delete dir="classes"/>
+    </target>
+    <target name="compile">
+        <mkdir dir="classes"/>
+        <javac srcdir="src" destdir="classes" debug="true">
+            <classpath>
+                <fileset dir="${webInfoDir}/lib">
+                    <include name="*.jar"/>
+                </fileset>
+                <!-- fileset dir="webapp/WEB-INF/lib">
+                   <include name="*.jar"/>
+               </fileset -->
+            </classpath>
+        </javac>
+    </target>
+    <target name="deploy" depends="compile">
+        <echo message="webapp src..."/>
+        <copy todir="${webInfoDir}" overwrite="true">
+            <fileset dir="webapp/WEB-INF"/>
+        </copy>
+        <!-- copy classes dir -->
+        <echo message="classes..."/>
+        <copy todir="${webInfoDir}/classes" overwrite="true">
+            <fileset dir="classes"/>
+        </copy>
+    </target>
+</project>

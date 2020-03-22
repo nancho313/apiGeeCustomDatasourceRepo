@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/apiGeeCustomDataSourceProject.iml" filepath="$PROJECT_DIR$/.idea/apiGeeCustomDataSourceProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apiGeeJRCommons/apiGeeJRCommons.iml" filepath="$PROJECT_DIR$/apiGeeJRCommons/apiGeeJRCommons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apiGeeJRCustomDataSource/apiGeeJRCustomDataSource.iml" filepath="$PROJECT_DIR$/apiGeeJRCustomDataSource/apiGeeJRCustomDataSource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apiGeeJRReportsResolver/apiGeeJRReportsResolver.iml" filepath="$PROJECT_DIR$/apiGeeJRReportsResolver/apiGeeJRReportsResolver.iml" />
+    </modules>
+  </component>
+</project>

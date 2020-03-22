@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="apiGeeJRReportsResolver">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/apiGeeJRCustomDataSource/out/artifacts/apiGeeJRReportsResolver_jar/apiGeeJRReportsResolver.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

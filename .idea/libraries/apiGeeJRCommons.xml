@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="apiGeeJRCommons">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/apiGeeJRCustomDataSource/out/artifacts/apiGeeJRCommons_jar/apiGeeJRCommons.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
