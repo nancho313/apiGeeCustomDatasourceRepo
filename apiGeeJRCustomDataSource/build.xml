@@ -1,6 +1,6 @@
 <project name="x" default="deploy" basedir=".">
 
-    <property name="webInfoDir" value="/home/nancho313/Downloads/jasperdocker/jasperreports-webinf"/>
+    <property name="webInfDir" value=""/>
 
     <target name="clean">
         <delete dir="classes"/>
@@ -9,7 +9,7 @@
         <mkdir dir="classes"/>
         <javac srcdir="src" destdir="classes" debug="true">
             <classpath>
-                <fileset dir="${webInfoDir}/lib">
+                <fileset dir="${webInfDir}/lib">
                     <include name="*.jar"/>
                 </fileset>
             </classpath>
@@ -17,12 +17,11 @@
     </target>
     <target name="deploy" depends="compile">
         <echo message="webapp src..."/>
-        <copy todir="${webInfoDir}" overwrite="true">
+        <copy todir="${webInfDir}" overwrite="true">
             <fileset dir="webapp/WEB-INF"/>
         </copy>
-        <!-- copy classes dir -->
         <echo message="classes..."/>
-        <copy todir="${webInfoDir}/classes" overwrite="true">
+        <copy todir="${webInfDir}/classes" overwrite="true">
             <fileset dir="classes"/>
         </copy>
     </target>

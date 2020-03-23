@@ -2,6 +2,7 @@ package com.colsubsidio.jr.report.resolver.factory;
 
 import com.colsubsidio.jr.report.resolver.commons.strategy.IApiGeeReportStrategy;
 import com.colsubsidio.jr.report.resolver.enums.ReportStrategyEnum;
+import com.colsubsidio.jr.report.resolver.strategies.extractoCreditoHipotecario.ExtractoCreditoHipotecarioStrategy;
 import com.colsubsidio.jr.report.resolver.strategies.testReport.TestReportStrategy;
 
 public enum ApiGeeReportFactory {
@@ -16,6 +17,11 @@ public enum ApiGeeReportFactory {
 
             reportStrategy = new TestReportStrategy();
         }
+        else
+            if(ReportStrategyEnum.EXTRACTO_CREDITO_HIPOTECARIO.equals(reportStrategyEnum)){
+
+                reportStrategy = new ExtractoCreditoHipotecarioStrategy();
+            }
 
         return reportStrategy;
     }
