@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -38,11 +39,30 @@ public class ApiGeeIntegrator {
         for (String key : queryParams.keySet()) {
             webTarget = webTarget.queryParam(key, queryParams.get(key));
         }
-        System.out.println("URL TO CONSUME -> "+webTarget.getUri());
-        Response response = webTarget.request(MediaType.APPLICATION_JSON).get();
+        Response response = webTarget.request(MediaType.APPLICATION_JSON).
+                header("Authorization", getBearerAuthentication(getOAuth2Token())).get();
         Gson gson = new Gson();
         String responseJson = response.readEntity(String.class);
         IApiGeeDTO apiGeeDTO = gson.fromJson(responseJson, reportStrategy.getApiGeeResponseClass());
         return reportStrategy.buildResponse(apiGeeDTO);
+    }
+
+    private OAuth2TokenResponse getOAuth2Token(){
+
+        OAuth2TokenRequest tokenRequest = new OAuth2TokenRequest();
+        tokenRequest.setClienteId(this.username);
+        tokenRequest.setClienteSecreto(this.password);
+        Client client = ClientBuilder.newClient();
+        WebTarget webTarget = client.target(this.tokenService);
+        Response response = webTarget.request(MediaType.APPLICATION_JSON).post(Entity.text(new Gson().toJson(tokenRequest)));
+        Gson gson = new Gson();
+        String responseJson = response.readEntity(String.class);
+        OAuth2TokenResponse tokenResponse = gson.fromJson(responseJson, OAuth2TokenResponse.class);
+        return tokenResponse;
+    }
+
+    private String getBearerAuthentication(OAuth2TokenResponse tokenResponse){
+
+        return "Bearer "+tokenResponse.getAccess_token();
     }
 }

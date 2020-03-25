@@ -1,6 +1,5 @@
 package com.colsubsidio.jr.custom.datasource.impl;
 
-
 import com.colsubsidio.jr.report.resolver.commons.dto.IApiGeeDTO;
 import com.colsubsidio.jr.report.resolver.commons.response.IApiGeeResponse;
 import com.colsubsidio.jr.report.resolver.commons.strategy.IApiGeeReportStrategy;

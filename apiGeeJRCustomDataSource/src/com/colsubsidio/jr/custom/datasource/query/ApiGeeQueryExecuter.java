@@ -35,7 +35,6 @@ public class ApiGeeQueryExecuter implements JRQueryExecuter {
         String apigeeService = apiGeeProperties.get("apigeeService");
         String report = apiGeeProperties.get("report");
         Map<String, String> queryParamsMap = getQueryParams(reportParametersMap);
-        System.out.println("Query Params -> "+queryParamsMap);
         ReportStrategyEnum reportStrategyEnum = ReportStrategyEnum.valueOf(report);
         dataSource.initSource(username, password, tokenService, apigeeService, reportStrategyEnum, queryParamsMap);
         dataSource.initIterator();
