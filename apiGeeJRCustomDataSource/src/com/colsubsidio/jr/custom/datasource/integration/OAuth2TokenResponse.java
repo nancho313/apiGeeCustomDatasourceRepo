@@ -1,9 +1,15 @@
 package com.colsubsidio.jr.custom.datasource.integration;
 
-import java.util.List;
-
+/**
+ * @author Ingeneo S.A.S
+ * Es la respuesta del servicio para obtener el bearer token
+ */
 public class OAuth2TokenResponse {
 
+    /**
+     * Este es el bearer token que nos permite consumir los servicios de ApiGee
+     */
+    private String access_token;
     private String issued_at;
     private String scope;
     private String application_name;
@@ -16,7 +22,6 @@ public class OAuth2TokenResponse {
     private String token_type;
     private String refresh_token;
     private String client_id;
-    private String access_token;
     private String organization_name;
     private String refresh_token_expires_in;
     private String refresh_count;

@@ -9,11 +9,25 @@ import net.sf.jasperreports.engine.JRDataSource;
 
 import java.util.Map;
 
+/**
+ * @author Ingeneo S.A.S
+ * Este componente se utiliza al momento de abrir un JasperReport que tenga asociado un origen de datos
+ * de tipo ApiGee
+ */
 public class ApiGeeDataSourceService implements ReportDataSourceService, CustomDomainMetaDataProvider {
 
+    /**
+     * Instancia del custom datasource
+     */
     JRDataSource ds;
-    private RepositoryService repository;
+
+    /**
+     * Son las propiedades del datasource que se ingresan al momento de crearlo en jasperserver, se inyectan
+     * por medio de Spring
+     */
     private Map<String, String> propertyMap;
+
+    private RepositoryService repository;
 
     public ApiGeeDataSourceService() {
 
@@ -25,6 +39,12 @@ public class ApiGeeDataSourceService implements ReportDataSourceService, CustomD
         this.ds = ds;
     }
 
+    /**
+     * Obtiene la metadata del datasource
+     * @param customReportDataSource
+     * @return los metadatos configurados del reporte
+     * @throws Exception, en caso de presentarse un error inesperado
+     */
     @Override
     public CustomDomainMetaData getCustomDomainMetaData(CustomReportDataSource customReportDataSource) throws Exception {
 
@@ -37,6 +57,10 @@ public class ApiGeeDataSourceService implements ReportDataSourceService, CustomD
         }
     }
 
+    /**
+     * Este metodo nos ayuda a almacenar las propiedades iniciales del datasource al map de las propiedades generales
+     * @param parameterValues
+     */
     @Override
     public void setReportParameterValues(Map parameterValues) {
         parameterValues.put("APIGEE_PROPERTIES", propertyMap);

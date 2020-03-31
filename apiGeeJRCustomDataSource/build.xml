@@ -1,4 +1,4 @@
-<project name="x" default="deploy" basedir=".">
+<project name="apiGeeJRCustomDataSource" default="deploy" basedir=".">
 
     <property name="webInfDir" value=""/>
 
@@ -7,7 +7,7 @@
     </target>
     <target name="compile">
         <mkdir dir="classes"/>
-        <javac srcdir="src" destdir="classes" debug="true">
+        <javac srcdir="src" destdir="classes" debug="true" includeantruntime="false">
             <classpath>
                 <fileset dir="${webInfDir}/lib">
                     <include name="*.jar"/>
@@ -16,11 +16,9 @@
         </javac>
     </target>
     <target name="deploy" depends="compile">
-        <echo message="webapp src..."/>
         <copy todir="${webInfDir}" overwrite="true">
             <fileset dir="webapp/WEB-INF"/>
         </copy>
-        <echo message="classes..."/>
         <copy todir="${webInfDir}/classes" overwrite="true">
             <fileset dir="classes"/>
         </copy>
